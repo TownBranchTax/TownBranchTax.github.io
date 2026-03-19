@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Town Branch Tax | Lexington, Kentucky</title>
+  <meta name="description" content="Town Branch Tax provides tax preparation, bookkeeping, payroll, and small-business advisory services in Lexington, Kentucky." />
+  <style>
+    :root {
+      --navy: #19324a;
+      --blue: #285c8f;
+      --gold: #b78b43;
+      --cream: #f7f2e8;
+      --sage: #798b6d;
+      --text: #1f2933;
+      --white: #ffffff;
+      --border: #d8d1c4;
+      --shadow: 0 10px 30px rgba(25, 50, 74, 0.08);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.95rem;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      flex-wrap: wrap;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 242, 232, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(25, 50, 74, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 2px solid var(--navy);
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #fff, #f3ebdc);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-text strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.3rem;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.92rem;
+      color: #4a5a68;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.96rem;
+      color: var(--navy);
+    }
+
+    .cta {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      padding: 0.9rem 1.25rem;
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .cta.alt {
+      background: transparent;
+      color: var(--navy);
+      border: 1px solid var(--navy);
+    }
+
+    .cta:hover { transform: translateY(-1px); opacity: 0.94; }
+
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+      background:
+        radial-gradient(circle at top right, rgba(183,139,67,0.18), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,0.55), rgba(247,242,232,0.95));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      color: var(--navy);
+      line-height: 1.12;
+      margin: 0 0 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.6rem);
+      max-width: 11ch;
+    }
+
+    .hero p {
+      max-width: 58ch;
+      font-size: 1.08rem;
+      margin: 0 0 1.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: calc(var(--radius) + 6px);
+      padding: 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 72px;
+      background: linear-gradient(90deg, var(--blue), #4aa0bf, #94b57a);
+      clip-path: ellipse(70% 55% at 50% 100%);
+      opacity: 0.95;
+    }
+
+    .hero-card .badge {
+      display: inline-block;
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(25, 50, 74, 0.08);
+      color: var(--navy);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card li {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #ece5d8;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hero-card li:last-child { border-bottom: 0; }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-head {
+      max-width: 60ch;
+      margin-bottom: 2rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 { font-size: 1.35rem; }
+
+    .card p,
+    .card li,
+    .split p,
+    .faq details,
+    .contact-card p,
+    footer,
+    .muted {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(40, 92, 143, 0.10);
+      color: var(--blue);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .photo-block {
+      min-height: 380px;
+      border-radius: calc(var(--radius) + 4px);
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(rgba(25,50,74,0.25), rgba(25,50,74,0.15)),
+        url('https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=1200&q=80') center/cover;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-caption {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      background: rgba(255,255,255,0.92);
+      padding: 0.8rem 0.9rem;
+      border-radius: 14px;
+      max-width: 250px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+
+    .list li {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #e9dfcf;
+    }
+
+    .list li:last-child { border-bottom: 0; }
+
+    .accent-band {
+      background: linear-gradient(180deg, #f1eadf, #fbf8f1);
+      border-top: 1px solid rgba(25, 50, 74, 0.06);
+      border-bottom: 1px solid rgba(25, 50, 74, 0.06);
+    }
+
+    .faq {
+      display: grid;
+      gap: 1rem;
+    }
+
+    details {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 1.05rem;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card strong { color: var(--navy); }
+
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.9);
+      padding: 2rem 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .split,
+      .cards,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul { display: none; }
+      h1 { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>Proudly serving Lexington, the Bluegrass, and small businesses across Kentucky</div>
+      <div>Call: (859) 555-0114</div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="Town Branch Tax home">
+        <div class="brand-mark">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="22" cy="22" r="20" stroke="#19324a" stroke-width="1.6"/>
+            <path d="M7 26C12 21 17 22 22 25C27 28 32 28 37 24" stroke="#285c8f" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M7 29C12 24 17 25 22 28C27 31 32 31 37 27" stroke="#94b57a" stroke-width="2.2" stroke-linecap="round" opacity="0.9"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <strong>Town Branch Tax</strong>
+          <span>Lexington, Kentucky</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#why-kentucky">Why Us</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contact" class="cta">Schedule a Consultation</a>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Steady guidance. Kentucky roots.</span>
+          <h1>Tax help that feels local, clear, and dependable.</h1>
+          <p>
+            Town Branch Tax is built for Kentucky families, entrepreneurs, and growing companies who want practical advice,
+            responsive service, and year-round support—not just a rushed filing in the spring.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="cta">Book Your First Conversation</a>
+            <a href="#services" class="cta alt">Explore Services</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Featured services">
+          <span class="badge">Simple • Professional • Kentucky-first</span>
+          <h2>What we help with</h2>
+          <ul>
+            <li>Individual and family tax preparation</li>
+            <li>Small-business returns and tax planning</li>
+            <li>Bookkeeping and payroll support</li>
+            <li>Quarterly estimates and advisory</li>
+            <li>New business setup and entity guidance</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Services</span>
+          <h2>Built for local families, farms, professionals, and small businesses.</h2>
+          <p class="muted">
+            The structure is intentionally simple so it works well on GitHub Pages while still feeling polished and trustworthy.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">01</div>
+            <h3>Tax Preparation</h3>
+            <p>Federal, Kentucky, and local filings for individuals, families, contractors, and business owners.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">02</div>
+            <h3>Small-Business Support</h3>
+            <p>Entity setup, quarterly planning, deductions strategy, and practical guidance for growing Kentucky companies.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">03</div>
+            <h3>Bookkeeping & Payroll</h3>
+            <p>Reliable monthly support that helps you stay organized, tax-ready, and focused on running your business.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="accent-band">
+      <div class="container split">
+        <div class="photo-block">
+          <div class="photo-caption">
+            Inspired by horse-country landscapes, limestone, and the calm tone of established Lexington firms.
+          </div>
+        </div>
+
+        <div>
+          <span class="eyebrow">About Town Branch Tax</span>
+          <h2>A more Kentucky take on the modern tax office.</h2>
+          <p>
+            Instead of looking generic or overly corporate, this concept leans into Bluegrass identity: warm cream tones,
+            navy and bourbon-gold accents, a subtle flowing creek motif, and language that sounds grounded and local.
+          </p>
+          <ul class="list">
+            <li><strong>Lexington feel:</strong> heritage-inspired typography and a calm, established visual tone.</li>
+            <li><strong>Simple stack:</strong> single HTML file, embedded CSS, no framework required.</li>
+            <li><strong>Easy to maintain:</strong> ideal for GitHub Pages and easy future edits.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-kentucky">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Why this direction works</span>
+          <h2>Closer to Lexington than a generic template.</h2>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <h3>More local character</h3>
+            <p>Use references to the Bluegrass, horse country, limestone, town branches, and family-run Kentucky businesses.</p>
+          </article>
+          <article class="card">
+            <h3>More warmth</h3>
+            <p>Swap cold corporate stock styling for cream backgrounds, serif headlines, and a more personal voice.</p>
+          </article>
+          <article class="card">
+            <h3>More trust</h3>
+            <p>Keep the page structure straightforward: hero, services, about, FAQ, and contact—nothing flashy or hard to maintain.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="accent-band">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">FAQ</span>
+          <h2>Helpful without adding complexity.</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Do you work with individuals or only businesses?</summary>
+            <p>Both. This layout supports individual returns, family tax prep, and business services without needing separate pages at launch.</p>
+          </details>
+          <details>
+            <summary>Can this stay simple on GitHub Pages?</summary>
+            <p>Yes. This concept is intentionally one static page with no build process, database, or JavaScript dependency.</p>
+          </details>
+          <details>
+            <summary>Could this expand later?</summary>
+            <p>Absolutely. You can later split Services, About, and Contact into separate pages while keeping the same visual identity.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Contact</span>
+          <h2>Ready for your real contact details.</h2>
+          <p class="muted">Replace the placeholders below with your phone, address, email, and intake link.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Town Branch Tax</h3>
+            <p><strong>Office:</strong> 123 Main Street, Lexington, KY 40507</p>
+            <p><strong>Phone:</strong> (859) 555-0114</p>
+            <p><strong>Email:</strong> hello@townbranchtax.com</p>
+          </div>
+          <div class="contact-card">
+            <h3>Office Hours</h3>
+            <p><strong>Mon–Fri:</strong> 8:30 AM – 5:30 PM</p>
+            <p><strong>Tax Season:</strong> Extended evening appointments available</p>
+            <p><strong>Consultations:</strong> In person, phone, or video</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 Town Branch Tax · Lexington, Kentucky</div>
+      <div>Simple static site for GitHub Pages</div>
+    </div>
+  </footer>
+</body>
+</html>
