@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Town Branch Tax | Lexington, Kentucky</title>
+  <meta name="description" content="Town Branch Tax provides expert tax preparation, bookkeeping, payroll, and small-business advisory services in Lexington, Kentucky. Serving the Bluegrass since day one." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --navy:    #18304a;
+      --navy-lt: #223f5e;
+      --blue:    #285c8f;
+      --gold:    #b78b43;
+      --gold-lt: #d4a85a;
+      --cream:   #f7f2e8;
+      --cream-dk:#ede6d6;
+      --sage:    #6d8060;
+      --text:    #1f2933;
+      --muted:   #556070;
+      --white:   #ffffff;
+      --border:  #d6ceba;
+      --shadow-sm: 0 2px 8px rgba(25,48,74,.07);
+      --shadow:    0 8px 32px rgba(25,48,74,.10);
+      --shadow-lg: 0 20px 60px rgba(25,48,74,.14);
+      --radius:  20px;
+      --max:     1140px;
+      --serif:   'Playfair Display', Georgia, serif;
+      --sans:    'Nunito Sans', Arial, Helvetica, sans-serif;
+    }
+
+    /* ─── RESET / BASE ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.65;
+      /* subtle grain texture */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(100% - 2.5rem, var(--max));
+      margin: 0 auto;
+    }
+
+    /* ─── SCROLL REVEAL ──────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(.22,1,.36,1), transform 0.65s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ─── TOPBAR ─────────────────────────────────────────────── */
+    .topbar {
+      background: var(--navy);
+      color: rgba(255,255,255,.85);
+      font-size: .88rem;
+      font-family: var(--sans);
+    }
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: .65rem 0;
+      flex-wrap: wrap;
+    }
+    .topbar a { color: var(--gold-lt); font-weight: 700; }
+    .topbar a:hover { color: #fff; }
+
+    /* ─── HEADER / NAV ───────────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247,242,232,.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(25,48,74,.10);
+      transition: box-shadow .3s;
+    }
+    header.scrolled { box-shadow: var(--shadow); }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .9rem 0;
+    }
+
+    /* Brand */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      text-decoration: none;
+    }
+    .brand-mark {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(25,48,74,.25);
+      background: linear-gradient(160deg,#fff 30%,#f0e8d8);
+      display: grid; place-items: center;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .brand-text strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--navy);
+      letter-spacing: .01em;
+    }
+    .brand-text span {
+      display: block;
+      font-size: .82rem;
+      color: var(--muted);
+      letter-spacing: .04em;
+    }
+
+    /* Desktop nav links */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.6rem;
+    }
+    .nav-links a {
+      font-size: .93rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: .01em;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -2px;
+      height: 2px; width: 0;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width .25s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* CTA button */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .72rem 1.3rem;
+      border-radius: 999px;
+      font-family: var(--sans);
+      font-size: .9rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: transform .18s ease, opacity .18s ease, box-shadow .18s ease;
+      text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(25,48,74,.18); }
+    .btn-primary { background: var(--navy); color: #fff; }
+    .btn-outline { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+    .btn-gold   { background: var(--gold); color: #fff; }
+    .btn-gold:hover { background: var(--gold-lt); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: .4rem;
+      color: var(--navy);
+      flex-direction: column;
+      gap: 5px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: rgba(25,48,74,.55);
+      backdrop-filter: blur(3px);
+    }
+    .mobile-nav.open { display: block; }
+    .mobile-drawer {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: min(320px, 85vw);
+      background: var(--cream);
+      padding: 5.5rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      box-shadow: -10px 0 40px rgba(25,48,74,.18);
+    }
+    .mobile-drawer a {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      color: var(--navy);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: .75rem;
+    }
+
+    /* ─── TYPOGRAPHY HELPERS ─────────────────────────────────── */
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: .9rem;
+    }
+    h1,h2,h3,h4 {
+      font-family: var(--serif);
+      color: var(--navy);
+      line-height: 1.1;
+    }
+    h1 { font-size: clamp(2.4rem,5vw,4.4rem); margin-bottom: 1.1rem; }
+    h2 { font-size: clamp(1.9rem,3.5vw,3rem); margin-bottom: 1rem; }
+    h3 { font-size: 1.35rem; margin-bottom: .6rem; }
+    .lead { font-size: 1.07rem; color: var(--muted); max-width: 60ch; }
+
+    .section-head { max-width: 58ch; margin-bottom: 2.5rem; }
+
+    /* ─── GOLD DIVIDER ───────────────────────────────────────── */
+    .gold-rule {
+      width: 52px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+      border-radius: 2px;
+      margin: .9rem 0 1.1rem;
+    }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .hero {
+      padding: 5rem 0 4.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -120px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(183,139,67,.16), transparent 65%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(40,92,143,.09), transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      background: rgba(40,92,143,.09);
+      border: 1px solid rgba(40,92,143,.18);
+      color: var(--blue);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      padding: .45rem .9rem;
+      border-radius: 999px;
+      margin-bottom: 1.2rem;
+    }
+    .hero-badge svg { width: 14px; height: 14px; }
+
+    .hero h1 em { font-style: italic; color: var(--gold); }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 52ch;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions { display: flex; gap: .9rem; flex-wrap: wrap; }
+
+    /* Hero card */
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) + 4px);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-card-header {
+      background: var(--navy);
+      padding: 1.3rem 1.5rem;
+    }
+    .hero-card-header h3 { color: #fff; font-size: 1.1rem; margin: 0; }
+    .hero-card-header p  { color: rgba(255,255,255,.6); font-size: .85rem; margin: .3rem 0 0; }
+
+    .hero-card-body { padding: .5rem 0; }
+    .hero-card-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: .9rem 1.5rem;
+      border-bottom: 1px solid #f0ebe0;
+      transition: background .2s;
+    }
+    .hero-card-item:last-child { border-bottom: 0; }
+    .hero-card-item:hover { background: #fdf9f3; }
+    .hero-card-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(40,92,143,.10);
+      display: grid; place-items: center;
+      flex-shrink: 0;
+    }
+    .hero-card-icon svg { width: 18px; height: 18px; color: var(--blue); }
+    .hero-card-label { font-size: .93rem; font-weight: 600; color: var(--navy); }
+    .hero-card-sub   { font-size: .8rem; color: var(--muted); margin-top: 1px; }
+
+    .hero-card-footer {
+      background: linear-gradient(90deg,#f0ead9,#fbf7f0);
+      border-top: 1px solid var(--border);
+      padding: .85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .85rem;
+      color: var(--sage);
+      font-weight: 600;
+    }
+
+    /* ─── TRUST STRIP ────────────────────────────────────────── */
+    .trust-strip {
+      background: var(--navy);
+      padding: 1.2rem 0;
+    }
+    .trust-items {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      color: rgba(255,255,255,.85);
+      font-size: .88rem;
+      font-weight: 600;
+    }
+    .trust-dot {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ─── SERVICES ───────────────────────────────────────────── */
+    .services { padding: 5rem 0; }
+
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(40,92,143,.25);
+    }
+
+    .service-num {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-style: italic;
+      color: rgba(183,139,67,.25);
+      line-height: 1;
+      margin-bottom: .6rem;
+    }
+    .service-card h3 { margin-bottom: .5rem; }
+    .service-card p  { color: var(--muted); font-size: .95rem; flex-grow: 1; }
+    .service-list {
+      list-style: none;
+      margin-top: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
+    .service-list li {
+      font-size: .87rem;
+      color: var(--muted);
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .service-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: .8rem;
+    }
+
+    /* ─── ABOUT / SPLIT ──────────────────────────────────────── */
+    .about {
+      padding: 5rem 0;
+      background: linear-gradient(180deg,#f1eadf,#f7f2e8);
+      border-top: 1px solid rgba(25,48,74,.06);
+      border-bottom: 1px solid rgba(25,48,74,.06);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .photo-wrap {
+      position: relative;
+    }
+    .photo-block {
+      height: 420px;
+      border-radius: calc(var(--radius) + 6px);
+      background:
+        linear-gradient(rgba(25,48,74,.3), rgba(25,48,74,.15)),
+        url('https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=900&q=80') center/cover;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+    }
+    .photo-badge {
+      position: absolute;
+      right: -1.2rem;
+      bottom: 2rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      box-shadow: var(--shadow);
+      max-width: 220px;
+      font-size: .88rem;
+    }
+    .photo-badge strong { color: var(--navy); font-size: 1.5rem; display: block; font-family: var(--serif); }
+
+    .about-list {
+      list-style: none;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+    .about-list li {
+      display: flex;
+      gap: .9rem;
+      align-items: flex-start;
+    }
+    .about-check {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: rgba(109,128,96,.15);
+      display: grid; place-items: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .about-check svg { width: 12px; height: 12px; color: var(--sage); }
+    .about-list-text { font-size: .95rem; color: var(--muted); }
+    .about-list-text strong { color: var(--navy); display: block; font-size: 1rem; margin-bottom: 1px; }
+
+    /* ─── TESTIMONIALS ───────────────────────────────────────── */
+    .testimonials { padding: 5rem 0; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .testi-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; }
+    .testi-text { font-size: .95rem; color: var(--muted); line-height: 1.7; font-style: italic; flex-grow: 1; }
+    .testi-author { display: flex; align-items: center; gap: .75rem; }
+    .testi-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--cream-dk);
+      display: grid; place-items: center;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--navy);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .testi-name  { font-size: .9rem; font-weight: 700; color: var(--navy); }
+    .testi-role  { font-size: .8rem; color: var(--muted); }
+
+    /* ─── FAQ ────────────────────────────────────────────────── */
+    .faq-section {
+      padding: 5rem 0;
+      background: linear-gradient(180deg,#f1eadf,#f7f2e8);
+      border-top: 1px solid rgba(25,48,74,.06);
+      border-bottom: 1px solid rgba(25,48,74,.06);
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    details {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+    details[open] { box-shadow: var(--shadow); border-color: rgba(40,92,143,.2); }
+    summary {
+      cursor: pointer;
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      padding: 1.2rem 1.3rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    .summary-icon {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: rgba(40,92,143,.1);
+      display: grid; place-items: center;
+      flex-shrink: 0;
+      transition: transform .3s, background .3s;
+    }
+    details[open] .summary-icon { transform: rotate(45deg); background: var(--navy); }
+    .summary-icon svg { width: 12px; height: 12px; color: var(--blue); }
+    details[open] .summary-icon svg { color: #fff; }
+    .faq-body { padding: 0 1.3rem 1.3rem; font-size: .95rem; color: var(--muted); line-height: 1.7; }
+
+    /* ─── CONTACT ────────────────────────────────────────────── */
+    .contact-section { padding: 5rem 0; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-block {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-block h3 { font-size: 1.05rem; margin-bottom: .75rem; }
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: .5rem 0;
+      font-size: .92rem;
+      color: var(--muted);
+      border-bottom: 1px solid #f0ead9;
+    }
+    .contact-row:last-child { border-bottom: 0; }
+    .contact-row-icon {
+      width: 32px; height: 32px;
+      background: rgba(40,92,143,.09);
+      border-radius: 8px;
+      display: grid; place-items: center;
+      flex-shrink: 0;
+    }
+    .contact-row-icon svg { width: 16px; height: 16px; color: var(--blue); }
+    .contact-row strong { color: var(--navy); display: block; }
+
+    /* Form */
+    .contact-form-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .contact-form-wrap h3 { margin-bottom: 1.25rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-field { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
+    .form-field label { font-size: .83rem; font-weight: 700; color: var(--navy); letter-spacing: .03em; }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      font-family: var(--sans);
+      font-size: .93rem;
+      padding: .7rem .9rem;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: var(--cream);
+      color: var(--text);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+      width: 100%;
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(40,92,143,.12);
+    }
+    .form-field textarea { resize: vertical; min-height: 100px; }
+    .form-submit-row { margin-top: .5rem; }
+    .form-note { font-size: .8rem; color: var(--muted); margin-top: .75rem; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.75);
+      font-size: .88rem;
+    }
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 2.5rem;
+      padding: 3rem 0 2rem;
+    }
+    .footer-brand strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: .4rem;
+    }
+    .footer-brand p { font-size: .88rem; line-height: 1.65; max-width: 34ch; }
+    .footer-col h4 {
+      font-family: var(--sans);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .9rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .footer-col ul a { color: rgba(255,255,255,.7); transition: color .2s; }
+    .footer-col ul a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding: 1.1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: .82rem;
+    }
+    .footer-bottom a { color: rgba(255,255,255,.55); }
+    .footer-bottom a:hover { color: rgba(255,255,255,.9); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; }
+
+      .service-cards,
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+
+      .faq-grid { grid-template-columns: 1fr; }
+
+      .footer-main { grid-template-columns: 1fr 1fr; }
+
+      .hero-card { max-width: 500px; }
+
+      .photo-badge { right: 1rem; }
+
+      .nav-links, .nav .btn { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    @media (max-width: 640px) {
+      .service-cards,
+      .testi-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr; }
+      .trust-items { gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOPBAR ──────────────────────────────────────────────── -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>Proudly serving Lexington, the Bluegrass, and small businesses across Kentucky</div>
+      <div>Call or text: <a href="tel:8595550114">(859) 555-0114</a></div>
+    </div>
+  </div>
+
+  <!-- ── HEADER ─────────────────────────────────────────────── -->
+  <header id="site-header">
+    <div class="container nav">
+
+      <a href="#home" class="brand" aria-label="Town Branch Tax home">
+        <div class="brand-mark">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="22" cy="22" r="20" stroke="#18304a" stroke-width="1.5"/>
+            <path d="M7 26C12 21 17 22 22 25C27 28 32 28 37 24" stroke="#285c8f" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M7 29C12 24 17 25 22 28C27 31 32 31 37 27" stroke="#94b57a" stroke-width="2.2" stroke-linecap="round" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <strong>Town Branch Tax</strong>
+          <span>Lexington, Kentucky</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contact" class="btn btn-primary" style="display:none" id="nav-cta">Schedule a Consultation</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+    <div class="mobile-drawer">
+      <a href="#services"     onclick="closeMobileNav()">Services</a>
+      <a href="#about"        onclick="closeMobileNav()">About</a>
+      <a href="#testimonials" onclick="closeMobileNav()">Reviews</a>
+      <a href="#faq"          onclick="closeMobileNav()">FAQ</a>
+      <a href="#contact"      onclick="closeMobileNav()">Contact</a>
+      <a href="#contact" class="btn btn-primary" onclick="closeMobileNav()">Schedule a Consultation</a>
+    </div>
+  </div>
+
+  <main id="home">
+
+    <!-- ── HERO ─────────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            Lexington's Bluegrass Tax Professionals
+          </div>
+
+          <h1>Tax help that's <em>clear, local,</em> and dependable.</h1>
+
+          <p class="hero-sub">
+            Town Branch Tax is built for Kentucky families, entrepreneurs, and growing
+            companies who want practical advice, responsive service, and year-round
+            support — not just a rushed filing come April.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-gold">Book Your Free Consultation</a>
+            <a href="#services" class="btn btn-outline">Explore Services</a>
+          </div>
+        </div>
+
+        <!-- Hero info card -->
+        <aside class="hero-card reveal reveal-delay-1" aria-label="Services at a glance">
+          <div class="hero-card-header">
+            <h3>What we take care of</h3>
+            <p>Year-round support for individuals &amp; businesses</p>
+          </div>
+          <div class="hero-card-body">
+
+            <div class="hero-card-item">
+              <div class="hero-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div>
+                <div class="hero-card-label">Tax Preparation</div>
+                <div class="hero-card-sub">Federal, Kentucky &amp; local returns</div>
+              </div>
+            </div>
+
+            <div class="hero-card-item">
+              <div class="hero-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div>
+                <div class="hero-card-label">Small-Business Support</div>
+                <div class="hero-card-sub">Planning, entities &amp; deductions</div>
+              </div>
+            </div>
+
+            <div class="hero-card-item">
+              <div class="hero-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div>
+                <div class="hero-card-label">Bookkeeping &amp; Payroll</div>
+                <div class="hero-card-sub">Monthly, quarterly or annual</div>
+              </div>
+            </div>
+
+            <div class="hero-card-item">
+              <div class="hero-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <div class="hero-card-label">Quarterly Estimates</div>
+                <div class="hero-card-sub">Never miss a payment deadline</div>
+              </div>
+            </div>
+
+          </div>
+          <div class="hero-card-footer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            In-person, phone, or video consultations
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ── TRUST STRIP ──────────────────────────────────────── -->
+    <div class="trust-strip">
+      <div class="container">
+        <div class="trust-items">
+          <div class="trust-item"><span class="trust-dot"></span> Lexington-based team</div>
+          <div class="trust-item"><span class="trust-dot"></span> Serving individuals &amp; businesses</div>
+          <div class="trust-item"><span class="trust-dot"></span> Year-round support</div>
+          <div class="trust-item"><span class="trust-dot"></span> Free initial consultation</div>
+          <div class="trust-item"><span class="trust-dot"></span> KY, Federal &amp; local filings</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SERVICES ─────────────────────────────────────────── -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Services</span>
+          <h2>Built for families, farms, professionals, and small businesses.</h2>
+          <div class="gold-rule"></div>
+          <p class="lead">
+            Whether you're filing a simple individual return or running payroll for a growing company, we have
+            a straightforward process and clear pricing to match.
+          </p>
+        </div>
+
+        <div class="service-cards">
+
+          <article class="service-card reveal reveal-delay-1">
+            <div class="service-num">01</div>
+            <h3>Tax Preparation</h3>
+            <p>Accurate, timely federal, Kentucky, and local returns — with plain-language explanations you can actually understand.</p>
+            <ul class="service-list">
+              <li>Individual &amp; family returns (W-2, 1099, rental income)</li>
+              <li>Self-employed &amp; Schedule C filers</li>
+              <li>Prior-year returns &amp; amended filings</li>
+              <li>IRS and KDOR correspondence support</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal reveal-delay-2">
+            <div class="service-num">02</div>
+            <h3>Small-Business Advisory</h3>
+            <p>Practical guidance for Kentucky entrepreneurs — from choosing the right entity to keeping more of what you earn.</p>
+            <ul class="service-list">
+              <li>Business entity selection &amp; setup</li>
+              <li>Quarterly tax planning &amp; estimates</li>
+              <li>Deduction strategy &amp; expense review</li>
+              <li>Annual business return preparation</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal reveal-delay-3">
+            <div class="service-num">03</div>
+            <h3>Bookkeeping &amp; Payroll</h3>
+            <p>Reliable, organized financial records that keep you tax-ready all year and out of the weeds at filing time.</p>
+            <ul class="service-list">
+              <li>Monthly transaction categorization</li>
+              <li>Payroll processing &amp; quarterly filings</li>
+              <li>QuickBooks setup &amp; reconciliation</li>
+              <li>Financial reporting for owners &amp; lenders</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ─────────────────────────────────────────────── -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+
+        <div class="photo-wrap reveal">
+          <div class="photo-block" role="img" aria-label="Bluegrass countryside — the heart of Lexington, Kentucky"></div>
+          <div class="photo-badge">
+            <strong>Lexington-rooted</strong>
+            Serving the Bluegrass community year-round, not just in tax season.
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+          <span class="eyebrow">About Town Branch Tax</span>
+          <h2>A more Kentucky take on the tax office.</h2>
+          <div class="gold-rule"></div>
+          <p class="lead">
+            We built Town Branch Tax because good tax advice shouldn't feel impersonal or rushed.
+            Here, you'll always reach a real person, get a straight answer, and know your finances
+            are in honest hands.
+          </p>
+
+          <ul class="about-list">
+            <li>
+              <div class="about-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="about-list-text">
+                <strong>Locally grounded</strong>
+                We understand Kentucky's tax landscape — from Fayette County occupational taxes to
+                agriculture exemptions — because we live and work here too.
+              </div>
+            </li>
+            <li>
+              <div class="about-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="about-list-text">
+                <strong>Year-round relationship</strong>
+                We're available when a life event changes your tax picture — not just in the spring
+                when it's already too late to plan.
+              </div>
+            </li>
+            <li>
+              <div class="about-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="about-list-text">
+                <strong>Plain-language clarity</strong>
+                No jargon, no surprises. We explain what we're doing and why, so you leave
+                every conversation feeling more confident.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── TESTIMONIALS ─────────────────────────────────────── -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Client Reviews</span>
+          <h2>What Kentucky clients are saying.</h2>
+          <div class="gold-rule"></div>
+        </div>
+
+        <div class="testi-grid">
+
+          <div class="testi-card reveal reveal-delay-1">
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">"Switched to Town Branch Tax after years of using a national chain. The difference is night and day — they actually explain my return line by line and answer my texts within the hour."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">ML</div>
+              <div>
+                <div class="testi-name">Maria L.</div>
+                <div class="testi-role">Registered Nurse, Lexington</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card reveal reveal-delay-2">
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">"As a contractor working multiple states, my taxes used to be a nightmare. Town Branch handles everything and saved me over $3,000 this year in deductions I'd been missing."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">DH</div>
+              <div>
+                <div class="testi-name">Derek H.</div>
+                <div class="testi-role">Independent Contractor, Georgetown</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card reveal reveal-delay-3">
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">"They set up our LLC, got us on a solid bookkeeping system, and have been by our side every quarter. If you own a small business in Kentucky, this is the team you want."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">JS</div>
+              <div>
+                <div class="testi-name">Jamie &amp; Sarah T.</div>
+                <div class="testi-role">Restaurant Owners, Nicholasville</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ───────────────────────────────────────────────── -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Common questions, straight answers.</h2>
+          <div class="gold-rule"></div>
+        </div>
+
+        <div class="faq-grid reveal">
+
+          <details>
+            <summary>
+              Who do you work with — individuals, businesses, or both?
+              <span class="summary-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </summary>
+            <div class="faq-body">Both. We prepare returns for individuals, families, retirees, contractors, self-employed filers, and businesses of all sizes — including LLCs, S-corps, and partnerships.</div>
+          </details>
+
+          <details>
+            <summary>
+              Do you handle Kentucky local occupational taxes?
+              <span class="summary-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </summary>
+            <div class="faq-body">Yes. We prepare Fayette County and other Kentucky local occupational tax returns, which are often overlooked — and sometimes the source of unexpected penalties when missed.</div>
+          </details>
+
+          <details>
+            <summary>
+              What if I'm behind on filing or owe back taxes?
+              <span class="summary-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </summary>
+            <div class="faq-body">We can help. We prepare prior-year returns, help you understand your options with the IRS and KDOR, and can assist with payment plans. There's no judgment — just a plan to get you square.</div>
+          </details>
+
+          <details>
+            <summary>
+              How do consultations work?
+              <span class="summary-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </summary>
+            <div class="faq-body">Your first conversation is always free. We offer in-person meetings at our Lexington office, phone calls, and video consultations — whatever works best for your schedule.</div>
+          </details>
+
+          <details>
+            <summary>
+              Can you help me set up a new business?
+              <span class="summary-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </summary>
+            <div class="faq-body">Absolutely. We help new business owners choose the right entity (LLC, S-corp, sole proprietor), register with the state, set up payroll, and build good bookkeeping habits from day one.</div>
+          </details>
+
+          <details>
+            <summary>
+              What are your fees?
+              <span class="summary-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </summary>
+            <div class="faq-body">Fees vary by the complexity of your return and the services you need. We provide clear, upfront quotes — no hourly surprises or hidden charges. Contact us for a free estimate.</div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ───────────────────────────────────────────── -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Contact</span>
+          <h2>Let's talk — the first conversation is always free.</h2>
+          <div class="gold-rule"></div>
+          <p class="lead">Reach out by phone, email, or use the form below to tell us a bit about your situation.</p>
+        </div>
+
+        <div class="contact-grid">
+
+          <!-- Info -->
+          <div class="contact-info reveal">
+
+            <div class="contact-block">
+              <h3>Town Branch Tax</h3>
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <strong>Office</strong>
+                  123 Main Street, Suite 200<br>Lexington, KY 40507
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <strong>Phone / Text</strong>
+                  <a href="tel:8595550114" style="color:var(--blue)">(859) 555-0114</a>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <strong>Email</strong>
+                  <a href="mailto:hello@townbranchtax.com" style="color:var(--blue)">hello@townbranchtax.com</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-block">
+              <h3>Office Hours</h3>
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <strong>Mon – Fri</strong>
+                  8:30 AM – 5:30 PM
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div>
+                  <strong>Tax Season (Jan – Apr)</strong>
+                  Extended hours + Saturday appointments
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-row-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.82v6.361a1 1 0 0 1-1.447.894L15 14M3 8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z"/></svg>
+                </div>
+                <div>
+                  <strong>Consultations</strong>
+                  In person, phone, or video — your choice
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Form — update action to your Formspree endpoint -->
+          <div class="contact-form-wrap reveal reveal-delay-1">
+            <h3>Send us a message</h3>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="fname">First Name</label>
+                  <input type="text" id="fname" name="first_name" placeholder="Jane" required />
+                </div>
+                <div class="form-field">
+                  <label for="lname">Last Name</label>
+                  <input type="text" id="lname" name="last_name" placeholder="Smith" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="jane@email.com" required />
+                </div>
+                <div class="form-field">
+                  <label for="phone">Phone (optional)</label>
+                  <input type="tel" id="phone" name="phone" placeholder="(859) 000-0000" />
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="service">What can we help with?</label>
+                <select id="service" name="service">
+                  <option value="">— Select a service —</option>
+                  <option>Individual / family tax return</option>
+                  <option>Self-employed / contractor filing</option>
+                  <option>Small-business tax &amp; planning</option>
+                  <option>Bookkeeping or payroll</option>
+                  <option>Prior-year or amended return</option>
+                  <option>New business setup</option>
+                  <option>General question</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="message">Anything else we should know?</label>
+                <textarea id="message" name="message" placeholder="Brief description of your situation — no obligation, just to help us prepare…"></textarea>
+              </div>
+
+              <div class="form-submit-row">
+                <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:.85rem 1.5rem;font-size:1rem;">
+                  Send Message
+                </button>
+              </div>
+              <p class="form-note">We typically reply within one business day. Your information is never shared or sold.</p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+
+        <div class="footer-brand">
+          <strong>Town Branch Tax</strong>
+          <p>Tax preparation, bookkeeping, and small-business advisory for Kentucky families and companies — year-round, not just in April.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Tax Preparation</a></li>
+            <li><a href="#services">Small-Business Advisory</a></li>
+            <li><a href="#services">Bookkeeping &amp; Payroll</a></li>
+            <li><a href="#services">Quarterly Estimates</a></li>
+            <li><a href="#services">New Business Setup</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#testimonials">Client Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="mailto:hello@townbranchtax.com">hello@townbranchtax.com</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Town Branch Tax · Lexington, Kentucky. All rights reserved.</div>
+        <div>
+          <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── SCRIPTS ────────────────────────────────────────────── -->
+  <script>
+    // ── Header shadow on scroll ──
+    const header = document.getElementById('site-header');
+    const navCta = document.getElementById('nav-cta');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY > 60;
+      header.classList.toggle('scrolled', scrolled);
+      if (navCta) navCta.style.display = scrolled ? 'inline-flex' : 'none';
+    });
+
+    // ── Mobile nav ──
+    const hamburger   = document.getElementById('hamburger');
+    const mobileNav   = document.getElementById('mobile-nav');
+
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      mobileNav.setAttribute('aria-hidden', !open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    mobileNav.addEventListener('click', e => {
+      if (e.target === mobileNav) closeMobileNav();
+    });
+
+    function closeMobileNav() {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      mobileNav.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // ── Scroll reveal ──
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
