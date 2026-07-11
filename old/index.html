@@ -472,41 +472,11 @@
     .photo-block {
       height: 420px;
       border-radius: calc(var(--radius) + 6px);
+      background:
+        linear-gradient(rgba(25,48,74,.3), rgba(25,48,74,.15)),
+        url('https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=900&q=80') center/cover;
       border: 1px solid var(--border);
       box-shadow: var(--shadow-lg);
-      position: relative;
-      overflow: hidden;
-      background: var(--navy);
-    }
-
-    .photo-slide {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      opacity: 0;
-      transition: opacity 1.1s ease-in-out;
-    }
-
-    .photo-slide.active {
-      opacity: 1;
-    }
-
-    .photo-block::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(rgba(25,48,74,.30), rgba(25,48,74,.15));
-      pointer-events: none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .photo-slide {
-        transition: none;
-      }
     }
     .photo-badge {
       position: absolute;
@@ -998,11 +968,7 @@
       <div class="container about-grid">
 
         <div class="photo-wrap reveal">
-          <div class="photo-block" role="img" aria-label="Scenes from Lexington and the Bluegrass">
-            <img class="photo-slide active" src="img/Lex_3.jpg" alt="" aria-hidden="true" />
-            <img class="photo-slide" src="img/lex_Blue.jpg" alt="" aria-hidden="true" />
-            <img class="photo-slide" src="img/Lex_Day.jpg" alt="" aria-hidden="true" />
-          </div>
+          <div class="photo-block" role="img" aria-label="Bluegrass countryside — the heart of Lexington, Kentucky"></div>
           <div class="photo-badge">
             <strong>Lexington-rooted</strong>
             Serving the Bluegrass community year-round, not just in tax season.
@@ -1400,19 +1366,6 @@
       });
     }, { threshold: 0.12 });
     reveals.forEach(el => io.observe(el));
-
-    // ── Lexington image carousel ──
-    const photoSlides = document.querySelectorAll('.photo-slide');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let activePhotoSlide = 0;
-
-    if (photoSlides.length > 1 && !reducedMotion) {
-      window.setInterval(() => {
-        photoSlides[activePhotoSlide].classList.remove('active');
-        activePhotoSlide = (activePhotoSlide + 1) % photoSlides.length;
-        photoSlides[activePhotoSlide].classList.add('active');
-      }, 5000);
-    }
   </script>
 
 </body>
